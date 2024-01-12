@@ -1,0 +1,86 @@
+{
+  "kind": "collectionType",
+  "collectionName": "personne_physiques",
+  "info": {
+    "singularName": "personne-physique",
+    "pluralName": "personne-physiques",
+    "displayName": "personnePhysique",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "postNom": {
+      "type": "string"
+    },
+    "prenom": {
+      "type": "string"
+    },
+    "sexe": {
+      "type": "string"
+    },
+    "adressePhysique": {
+      "type": "string"
+    },
+    "quartier": {
+      "type": "string"
+    },
+    "commune": {
+      "type": "string"
+    },
+    "ville": {
+      "type": "string"
+    },
+    "nationalite": {
+      "type": "string"
+    },
+    "date_naissance": {
+      "type": "date"
+    },
+    "lieu_naissance": {
+      "type": "string"
+    },
+    "type_carte_identite": {
+      "type": "string"
+    },
+    "numero_carte_identite": {
+      "type": "string"
+    },
+    "numero_personne_a_prevenir_1": {
+      "type": "string"
+    },
+    "numero_personne_a_prevenir_2": {
+      "type": "string"
+    },
+    "photo_profil": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "engagement": {
+      "type": "boolean"
+    },
+    "approbation": {
+      "type": "enumeration",
+      "enum": [
+        "initiale",
+        "gestionnaire",
+        "administrateur"
+      ]
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "personne_physiques"
+    }
+  }
+}

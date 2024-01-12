@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "personne_morales",
+  "info": {
+    "singularName": "personne-morale",
+    "pluralName": "personne-morales",
+    "displayName": "personneMorale",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type_compte": {
+      "type": "string"
+    },
+    "degre_parente": {
+      "type": "string"
+    },
+    "numero_compte_principal": {
+      "type": "biginteger"
+    },
+    "nom_demandeur": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "engagement": {
+      "type": "boolean"
+    },
+    "approbation": {
+      "type": "enumeration",
+      "enum": [
+        "gestionnaire",
+        "administrateur",
+        "initiale"
+      ]
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "personne_morales"
+    }
+  }
+}
