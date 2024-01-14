@@ -81,6 +81,16 @@
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "personne_physiques"
+    },
+    "statut": {
+      "type": "enumeration",
+      "enum": [
+        "rejected",
+        "validated"
+      ]
+    },
+    "observation": {
+      "type": "string"
     }
   }
 }

@@ -388,6 +388,8 @@ export interface ApiPersonneMoralePersonneMorale extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
+    statut: Attribute.Enumeration<['rejected', 'validated']>;
+    observation: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -444,6 +446,8 @@ export interface ApiPersonnePhysiquePersonnePhysique
       'manyToOne',
       'plugin::users-permissions.user'
     >;
+    statut: Attribute.Enumeration<['rejected', 'validated']>;
+    observation: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

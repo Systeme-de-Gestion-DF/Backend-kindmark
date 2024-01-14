@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-01-13T17:33:23.226Z"
+    "x-generation-date": "2024-01-14T13:01:07.656Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -145,6 +145,16 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "statut": {
+                "type": "string",
+                "enum": [
+                  "rejected",
+                  "validated"
+                ]
+              },
+              "observation": {
+                "type": "string"
               }
             }
           }
@@ -1251,6 +1261,16 @@
                                         }
                                       }
                                     },
+                                    "statut": {
+                                      "type": "string",
+                                      "enum": [
+                                        "rejected",
+                                        "validated"
+                                      ]
+                                    },
+                                    "observation": {
+                                      "type": "string"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -1531,6 +1551,16 @@
                                         }
                                       }
                                     },
+                                    "statut": {
+                                      "type": "string",
+                                      "enum": [
+                                        "rejected",
+                                        "validated"
+                                      ]
+                                    },
+                                    "observation": {
+                                      "type": "string"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -1631,6 +1661,16 @@
                 }
               }
             }
+          },
+          "statut": {
+            "type": "string",
+            "enum": [
+              "rejected",
+              "validated"
+            ]
+          },
+          "observation": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -1789,6 +1829,16 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "statut": {
+                "type": "string",
+                "enum": [
+                  "rejected",
+                  "validated"
+                ]
+              },
+              "observation": {
+                "type": "string"
               }
             }
           }
@@ -2923,6 +2973,16 @@
                                         }
                                       }
                                     },
+                                    "statut": {
+                                      "type": "string",
+                                      "enum": [
+                                        "rejected",
+                                        "validated"
+                                      ]
+                                    },
+                                    "observation": {
+                                      "type": "string"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -3203,6 +3263,16 @@
                                         }
                                       }
                                     },
+                                    "statut": {
+                                      "type": "string",
+                                      "enum": [
+                                        "rejected",
+                                        "validated"
+                                      ]
+                                    },
+                                    "observation": {
+                                      "type": "string"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -3303,6 +3373,16 @@
                 }
               }
             }
+          },
+          "statut": {
+            "type": "string",
+            "enum": [
+              "rejected",
+              "validated"
+            ]
+          },
+          "observation": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
