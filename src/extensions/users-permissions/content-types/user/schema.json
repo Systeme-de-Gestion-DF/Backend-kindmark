@@ -77,6 +77,18 @@
       "relation": "oneToMany",
       "target": "api::personne-physique.personne-physique",
       "mappedBy": "users_permissions_user"
+    },
+    "client": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::client.client",
+      "mappedBy": "users_permissions_user"
+    },
+    "agent": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::agent.agent",
+      "mappedBy": "users_permissions_user"
     }
   }
 }

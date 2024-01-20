@@ -362,6 +362,90 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiAgentAgent extends Schema.CollectionType {
+  collectionName: 'agents';
+  info: {
+    singularName: 'agent';
+    pluralName: 'agents';
+    displayName: 'agent';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    noms: Attribute.String;
+    fonction: Attribute.String;
+    users_permissions_user: Attribute.Relation<
+      'api::agent.agent',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::agent.agent',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::agent.agent',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiClientClient extends Schema.CollectionType {
+  collectionName: 'clients';
+  info: {
+    singularName: 'client';
+    pluralName: 'clients';
+    displayName: 'client';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    personne_morales: Attribute.Relation<
+      'api::client.client',
+      'oneToMany',
+      'api::personne-morale.personne-morale'
+    >;
+    personne_physiques: Attribute.Relation<
+      'api::client.client',
+      'oneToMany',
+      'api::personne-physique.personne-physique'
+    >;
+    users_permissions_user: Attribute.Relation<
+      'api::client.client',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    email: Attribute.Email;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::client.client',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::client.client',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPersonneMoralePersonneMorale extends Schema.CollectionType {
   collectionName: 'personne_morales';
   info: {
@@ -390,6 +474,11 @@ export interface ApiPersonneMoralePersonneMorale extends Schema.CollectionType {
     >;
     statut: Attribute.Enumeration<['rejected', 'validated']>;
     observation: Attribute.String;
+    client: Attribute.Relation<
+      'api::personne-morale.personne-morale',
+      'manyToOne',
+      'api::client.client'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -448,6 +537,11 @@ export interface ApiPersonnePhysiquePersonnePhysique
     >;
     statut: Attribute.Enumeration<['rejected', 'validated']>;
     observation: Attribute.String;
+    client: Attribute.Relation<
+      'api::personne-physique.personne-physique',
+      'manyToOne',
+      'api::client.client'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -865,6 +959,16 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToMany',
       'api::personne-physique.personne-physique'
     >;
+    client: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::client.client'
+    >;
+    agent: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::agent.agent'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -892,6 +996,8 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::agent.agent': ApiAgentAgent;
+      'api::client.client': ApiClientClient;
       'api::personne-morale.personne-morale': ApiPersonneMoralePersonneMorale;
       'api::personne-physique.personne-physique': ApiPersonnePhysiquePersonnePhysique;
       'plugin::upload.file': PluginUploadFile;

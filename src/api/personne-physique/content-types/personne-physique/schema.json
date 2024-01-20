@@ -91,6 +91,12 @@
     },
     "observation": {
       "type": "string"
+    },
+    "client": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::client.client",
+      "inversedBy": "personne_physiques"
     }
   }
 }
