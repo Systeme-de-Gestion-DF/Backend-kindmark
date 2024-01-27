@@ -460,7 +460,6 @@ export interface ApiPersonneMoralePersonneMorale extends Schema.CollectionType {
   attributes: {
     type_compte: Attribute.String;
     degre_parente: Attribute.String;
-    numero_compte_principal: Attribute.BigInteger;
     nom_demandeur: Attribute.String & Attribute.Required;
     logo: Attribute.Media & Attribute.Required;
     engagement: Attribute.Boolean;
@@ -472,13 +471,14 @@ export interface ApiPersonneMoralePersonneMorale extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
-    statut: Attribute.Enumeration<['rejected', 'validated']>;
+    statut: Attribute.Enumeration<['rejected', 'validated', 'pending']>;
     observation: Attribute.String;
     client: Attribute.Relation<
       'api::personne-morale.personne-morale',
       'manyToOne',
       'api::client.client'
     >;
+    numero_compte_principal: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -535,13 +535,14 @@ export interface ApiPersonnePhysiquePersonnePhysique
       'manyToOne',
       'plugin::users-permissions.user'
     >;
-    statut: Attribute.Enumeration<['rejected', 'validated']>;
+    statut: Attribute.Enumeration<['rejected', 'validated', 'pending']>;
     observation: Attribute.String;
     client: Attribute.Relation<
       'api::personne-physique.personne-physique',
       'manyToOne',
       'api::client.client'
     >;
+    numero_compte_principal: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

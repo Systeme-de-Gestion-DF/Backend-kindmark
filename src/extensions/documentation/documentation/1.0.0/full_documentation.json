@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-01-20T10:53:51.066Z"
+    "x-generation-date": "2024-01-27T23:51:36.517Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -649,11 +649,6 @@
                                     "degre_parente": {
                                       "type": "string"
                                     },
-                                    "numero_compte_principal": {
-                                      "type": "string",
-                                      "pattern": "^\\d*$",
-                                      "example": "123456789"
-                                    },
                                     "nom_demandeur": {
                                       "type": "string"
                                     },
@@ -1059,7 +1054,8 @@
                                       "type": "string",
                                       "enum": [
                                         "rejected",
-                                        "validated"
+                                        "validated",
+                                        "pending"
                                       ]
                                     },
                                     "observation": {
@@ -1331,7 +1327,8 @@
                                                                 "type": "string",
                                                                 "enum": [
                                                                   "rejected",
-                                                                  "validated"
+                                                                  "validated",
+                                                                  "pending"
                                                                 ]
                                                               },
                                                               "observation": {
@@ -1353,6 +1350,9 @@
                                                                     }
                                                                   }
                                                                 }
+                                                              },
+                                                              "numero_compte_principal": {
+                                                                "type": "string"
                                                               },
                                                               "createdAt": {
                                                                 "type": "string",
@@ -1479,6 +1479,9 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "numero_compte_principal": {
+                                      "type": "string"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -1905,11 +1908,6 @@
                         },
                         "degre_parente": {
                           "type": "string"
-                        },
-                        "numero_compte_principal": {
-                          "type": "string",
-                          "pattern": "^\\d*$",
-                          "example": "123456789"
                         },
                         "nom_demandeur": {
                           "type": "string"
@@ -3004,7 +3002,8 @@
                                                     "type": "string",
                                                     "enum": [
                                                       "rejected",
-                                                      "validated"
+                                                      "validated",
+                                                      "pending"
                                                     ]
                                                   },
                                                   "observation": {
@@ -3137,6 +3136,9 @@
                                                         }
                                                       }
                                                     }
+                                                  },
+                                                  "numero_compte_principal": {
+                                                    "type": "string"
                                                   },
                                                   "createdAt": {
                                                     "type": "string",
@@ -3347,7 +3349,8 @@
                           "type": "string",
                           "enum": [
                             "rejected",
-                            "validated"
+                            "validated",
+                            "pending"
                           ]
                         },
                         "observation": {
@@ -3369,6 +3372,9 @@
                               }
                             }
                           }
+                        },
+                        "numero_compte_principal": {
+                          "type": "string"
                         },
                         "createdAt": {
                           "type": "string",
@@ -3553,11 +3559,6 @@
               "degre_parente": {
                 "type": "string"
               },
-              "numero_compte_principal": {
-                "type": "string",
-                "pattern": "^\\d*$",
-                "example": "123456789"
-              },
               "nom_demandeur": {
                 "type": "string"
               },
@@ -3598,7 +3599,8 @@
                 "type": "string",
                 "enum": [
                   "rejected",
-                  "validated"
+                  "validated",
+                  "pending"
                 ]
               },
               "observation": {
@@ -3614,6 +3616,9 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "numero_compte_principal": {
+                "type": "string"
               }
             }
           }
@@ -3677,11 +3682,6 @@
           },
           "degre_parente": {
             "type": "string"
-          },
-          "numero_compte_principal": {
-            "type": "string",
-            "pattern": "^\\d*$",
-            "example": "123456789"
           },
           "nom_demandeur": {
             "type": "string"
@@ -4545,11 +4545,6 @@
                                     "degre_parente": {
                                       "type": "string"
                                     },
-                                    "numero_compte_principal": {
-                                      "type": "string",
-                                      "pattern": "^\\d*$",
-                                      "example": "123456789"
-                                    },
                                     "nom_demandeur": {
                                       "type": "string"
                                     },
@@ -4724,7 +4719,8 @@
                                       "type": "string",
                                       "enum": [
                                         "rejected",
-                                        "validated"
+                                        "validated",
+                                        "pending"
                                       ]
                                     },
                                     "observation": {
@@ -4996,7 +4992,8 @@
                                                                 "type": "string",
                                                                 "enum": [
                                                                   "rejected",
-                                                                  "validated"
+                                                                  "validated",
+                                                                  "pending"
                                                                 ]
                                                               },
                                                               "observation": {
@@ -5018,6 +5015,9 @@
                                                                     }
                                                                   }
                                                                 }
+                                                              },
+                                                              "numero_compte_principal": {
+                                                                "type": "string"
                                                               },
                                                               "createdAt": {
                                                                 "type": "string",
@@ -5144,6 +5144,9 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "numero_compte_principal": {
+                                      "type": "string"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -5374,7 +5377,8 @@
             "type": "string",
             "enum": [
               "rejected",
-              "validated"
+              "validated",
+              "pending"
             ]
           },
           "observation": {
@@ -5396,6 +5400,9 @@
                 }
               }
             }
+          },
+          "numero_compte_principal": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -5559,7 +5566,8 @@
                 "type": "string",
                 "enum": [
                   "rejected",
-                  "validated"
+                  "validated",
+                  "pending"
                 ]
               },
               "observation": {
@@ -5575,6 +5583,9 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "numero_compte_principal": {
+                "type": "string"
               }
             }
           }
@@ -6534,11 +6545,6 @@
                                     "degre_parente": {
                                       "type": "string"
                                     },
-                                    "numero_compte_principal": {
-                                      "type": "string",
-                                      "pattern": "^\\d*$",
-                                      "example": "123456789"
-                                    },
                                     "nom_demandeur": {
                                       "type": "string"
                                     },
@@ -6713,7 +6719,8 @@
                                       "type": "string",
                                       "enum": [
                                         "rejected",
-                                        "validated"
+                                        "validated",
+                                        "pending"
                                       ]
                                     },
                                     "observation": {
@@ -6985,7 +6992,8 @@
                                                                 "type": "string",
                                                                 "enum": [
                                                                   "rejected",
-                                                                  "validated"
+                                                                  "validated",
+                                                                  "pending"
                                                                 ]
                                                               },
                                                               "observation": {
@@ -7007,6 +7015,9 @@
                                                                     }
                                                                   }
                                                                 }
+                                                              },
+                                                              "numero_compte_principal": {
+                                                                "type": "string"
                                                               },
                                                               "createdAt": {
                                                                 "type": "string",
@@ -7133,6 +7144,9 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "numero_compte_principal": {
+                                      "type": "string"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -7363,7 +7377,8 @@
             "type": "string",
             "enum": [
               "rejected",
-              "validated"
+              "validated",
+              "pending"
             ]
           },
           "observation": {
@@ -7385,6 +7400,9 @@
                 }
               }
             }
+          },
+          "numero_compte_principal": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",

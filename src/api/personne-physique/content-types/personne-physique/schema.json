@@ -86,7 +86,8 @@
       "type": "enumeration",
       "enum": [
         "rejected",
-        "validated"
+        "validated",
+        "pending"
       ]
     },
     "observation": {
@@ -97,6 +98,9 @@
       "relation": "manyToOne",
       "target": "api::client.client",
       "inversedBy": "personne_physiques"
+    },
+    "numero_compte_principal": {
+      "type": "string"
     }
   }
 }
