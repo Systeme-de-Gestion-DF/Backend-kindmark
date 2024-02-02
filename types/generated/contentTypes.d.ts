@@ -428,6 +428,7 @@ export interface ApiClientClient extends Schema.CollectionType {
       'plugin::users-permissions.user'
     >;
     email: Attribute.Email;
+    telephone: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

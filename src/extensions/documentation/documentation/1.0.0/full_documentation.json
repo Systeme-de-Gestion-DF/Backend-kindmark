@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-01-27T23:51:36.517Z"
+    "x-generation-date": "2024-02-02T00:35:29.323Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1428,6 +1428,9 @@
                                                   "type": "string",
                                                   "format": "email"
                                                 },
+                                                "telephone": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -1832,6 +1835,9 @@
               "email": {
                 "type": "string",
                 "format": "email"
+              },
+              "telephone": {
+                "type": "string"
               }
             }
           }
@@ -3085,6 +3091,9 @@
                                                                 "type": "string",
                                                                 "format": "email"
                                                               },
+                                                              "telephone": {
+                                                                "type": "string"
+                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -3469,6 +3478,9 @@
           "email": {
             "type": "string",
             "format": "email"
+          },
+          "telephone": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -5092,6 +5104,9 @@
                                                 "email": {
                                                   "type": "string",
                                                   "format": "email"
+                                                },
+                                                "telephone": {
+                                                  "type": "string"
                                                 },
                                                 "createdAt": {
                                                   "type": "string",
@@ -7092,6 +7107,9 @@
                                                 "email": {
                                                   "type": "string",
                                                   "format": "email"
+                                                },
+                                                "telephone": {
+                                                  "type": "string"
                                                 },
                                                 "createdAt": {
                                                   "type": "string",

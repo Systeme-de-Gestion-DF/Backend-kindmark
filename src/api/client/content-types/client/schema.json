@@ -35,6 +35,9 @@
     },
     "email": {
       "type": "email"
+    },
+    "telephone": {
+      "type": "string"
     }
   }
 }
