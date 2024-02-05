@@ -20,15 +20,7 @@
     },
     "nom_demandeur": {
       "type": "string",
-      "required": true
-    },
-    "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "required": false
     },
     "engagement": {
       "type": "boolean"
@@ -65,6 +57,9 @@
       "inversedBy": "personne_morales"
     },
     "numero_compte_principal": {
+      "type": "string"
+    },
+    "logo": {
       "type": "string"
     }
   }

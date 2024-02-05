@@ -461,8 +461,7 @@ export interface ApiPersonneMoralePersonneMorale extends Schema.CollectionType {
   attributes: {
     type_compte: Attribute.String;
     degre_parente: Attribute.String;
-    nom_demandeur: Attribute.String & Attribute.Required;
-    logo: Attribute.Media & Attribute.Required;
+    nom_demandeur: Attribute.String;
     engagement: Attribute.Boolean;
     approbation: Attribute.Enumeration<
       ['gestionnaire', 'administrateur', 'initiale']
@@ -480,6 +479,7 @@ export interface ApiPersonneMoralePersonneMorale extends Schema.CollectionType {
       'api::client.client'
     >;
     numero_compte_principal: Attribute.String;
+    logo: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
