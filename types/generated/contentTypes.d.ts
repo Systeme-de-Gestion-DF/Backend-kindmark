@@ -478,7 +478,7 @@ export interface ApiPersonneMoralePersonneMorale extends Schema.CollectionType {
       'manyToOne',
       'api::client.client'
     >;
-    numero_compte_principal: Attribute.String;
+    numero_compte_principal: Attribute.String & Attribute.Unique;
     logo: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

@@ -57,7 +57,8 @@
       "inversedBy": "personne_morales"
     },
     "numero_compte_principal": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     },
     "logo": {
       "type": "string"
