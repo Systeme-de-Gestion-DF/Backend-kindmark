@@ -411,7 +411,7 @@ export interface ApiClientClient extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
     personne_morales: Attribute.Relation<
       'api::client.client',
       'oneToMany',
