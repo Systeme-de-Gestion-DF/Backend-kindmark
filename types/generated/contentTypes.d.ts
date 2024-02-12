@@ -526,7 +526,6 @@ export interface ApiPersonnePhysiquePersonnePhysique
     numero_carte_identite: Attribute.String;
     numero_personne_a_prevenir_1: Attribute.String;
     numero_personne_a_prevenir_2: Attribute.String;
-    photo_profil: Attribute.Media;
     engagement: Attribute.Boolean;
     approbation: Attribute.Enumeration<
       ['initiale', 'gestionnaire', 'administrateur']
@@ -544,6 +543,7 @@ export interface ApiPersonnePhysiquePersonnePhysique
       'api::client.client'
     >;
     numero_compte_principal: Attribute.String;
+    photo_profil: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

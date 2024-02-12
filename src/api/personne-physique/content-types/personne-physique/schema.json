@@ -57,14 +57,6 @@
     "numero_personne_a_prevenir_2": {
       "type": "string"
     },
-    "photo_profil": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "engagement": {
       "type": "boolean"
     },
@@ -100,6 +92,9 @@
       "inversedBy": "personne_physiques"
     },
     "numero_compte_principal": {
+      "type": "string"
+    },
+    "photo_profil": {
       "type": "string"
     }
   }
