@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-02-11T23:57:52.850Z"
+    "x-generation-date": "2024-02-12T00:48:59.862Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -846,6 +846,9 @@
                                                                 "type": "string"
                                                               },
                                                               "photo_profil": {
+                                                                "type": "string"
+                                                              },
+                                                              "type_compte": {
                                                                 "type": "string"
                                                               },
                                                               "createdAt": {
@@ -2146,6 +2149,9 @@
                                                   "photo_profil": {
                                                     "type": "string"
                                                   },
+                                                  "type_compte": {
+                                                    "type": "string"
+                                                  },
                                                   "createdAt": {
                                                     "type": "string",
                                                     "format": "date-time"
@@ -3370,6 +3376,9 @@
                                                               "photo_profil": {
                                                                 "type": "string"
                                                               },
+                                                              "type_compte": {
+                                                                "type": "string"
+                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -3937,6 +3946,9 @@
                 "type": "string"
               },
               "photo_profil": {
+                "type": "string"
+              },
+              "type_compte": {
                 "type": "string"
               }
             }
@@ -4726,6 +4738,9 @@
                                                               "photo_profil": {
                                                                 "type": "string"
                                                               },
+                                                              "type_compte": {
+                                                                "type": "string"
+                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -5118,6 +5133,9 @@
             "type": "string"
           },
           "photo_profil": {
+            "type": "string"
+          },
+          "type_compte": {
             "type": "string"
           },
           "createdAt": {

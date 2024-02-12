@@ -96,6 +96,9 @@
     },
     "photo_profil": {
       "type": "string"
+    },
+    "type_compte": {
+      "type": "string"
     }
   }
 }

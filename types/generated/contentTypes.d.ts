@@ -544,6 +544,7 @@ export interface ApiPersonnePhysiquePersonnePhysique
     >;
     numero_compte_principal: Attribute.String;
     photo_profil: Attribute.String;
+    type_compte: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
