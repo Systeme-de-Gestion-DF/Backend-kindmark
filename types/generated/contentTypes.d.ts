@@ -429,6 +429,7 @@ export interface ApiClientClient extends Schema.CollectionType {
     >;
     email: Attribute.Email;
     telephone: Attribute.String;
+    sales: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

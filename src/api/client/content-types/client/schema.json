@@ -40,6 +40,9 @@
     },
     "telephone": {
       "type": "string"
+    },
+    "sales": {
+      "type": "integer"
     }
   }
 }
