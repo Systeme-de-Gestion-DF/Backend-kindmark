@@ -105,6 +105,9 @@
       "relation": "manyToOne",
       "target": "api::bouquet.bouquet",
       "inversedBy": "personne_physiques"
+    },
+    "paiement": {
+      "type": "string"
     }
   }
 }

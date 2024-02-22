@@ -362,258 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiAgentAgent extends Schema.CollectionType {
-  collectionName: 'agents';
-  info: {
-    singularName: 'agent';
-    pluralName: 'agents';
-    displayName: 'agent';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    noms: Attribute.String;
-    fonction: Attribute.String;
-    users_permissions_user: Attribute.Relation<
-      'api::agent.agent',
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::agent.agent',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::agent.agent',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiBouquetBouquet extends Schema.CollectionType {
-  collectionName: 'bouquets';
-  info: {
-    singularName: 'bouquet';
-    pluralName: 'bouquets';
-    displayName: 'bouquet';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    personne_morales: Attribute.Relation<
-      'api::bouquet.bouquet',
-      'oneToMany',
-      'api::personne-morale.personne-morale'
-    >;
-    personne_physiques: Attribute.Relation<
-      'api::bouquet.bouquet',
-      'oneToMany',
-      'api::personne-physique.personne-physique'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::bouquet.bouquet',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::bouquet.bouquet',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiClientClient extends Schema.CollectionType {
-  collectionName: 'clients';
-  info: {
-    singularName: 'client';
-    pluralName: 'clients';
-    displayName: 'client';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required & Attribute.Unique;
-    personne_morales: Attribute.Relation<
-      'api::client.client',
-      'oneToMany',
-      'api::personne-morale.personne-morale'
-    >;
-    personne_physiques: Attribute.Relation<
-      'api::client.client',
-      'oneToMany',
-      'api::personne-physique.personne-physique'
-    >;
-    users_permissions_user: Attribute.Relation<
-      'api::client.client',
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
-    email: Attribute.Email;
-    telephone: Attribute.String;
-    sales: Attribute.Integer;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::client.client',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::client.client',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPersonneMoralePersonneMorale extends Schema.CollectionType {
-  collectionName: 'personne_morales';
-  info: {
-    singularName: 'personne-morale';
-    pluralName: 'personne-morales';
-    displayName: 'personneMorale';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    type_compte: Attribute.String;
-    degre_parente: Attribute.String;
-    nom_demandeur: Attribute.String;
-    engagement: Attribute.Boolean;
-    approbation: Attribute.Enumeration<
-      ['gestionnaire', 'administrateur', 'initiale']
-    >;
-    users_permissions_user: Attribute.Relation<
-      'api::personne-morale.personne-morale',
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
-    statut: Attribute.Enumeration<['rejected', 'validated', 'pending']>;
-    observation: Attribute.String;
-    client: Attribute.Relation<
-      'api::personne-morale.personne-morale',
-      'manyToOne',
-      'api::client.client'
-    >;
-    numero_compte_principal: Attribute.String & Attribute.Unique;
-    logo: Attribute.String;
-    bouquet: Attribute.Relation<
-      'api::personne-morale.personne-morale',
-      'manyToOne',
-      'api::bouquet.bouquet'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::personne-morale.personne-morale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::personne-morale.personne-morale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPersonnePhysiquePersonnePhysique
-  extends Schema.CollectionType {
-  collectionName: 'personne_physiques';
-  info: {
-    singularName: 'personne-physique';
-    pluralName: 'personne-physiques';
-    displayName: 'personnePhysique';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    nom: Attribute.String;
-    postNom: Attribute.String;
-    prenom: Attribute.String;
-    sexe: Attribute.String;
-    adressePhysique: Attribute.String;
-    quartier: Attribute.String;
-    commune: Attribute.String;
-    ville: Attribute.String;
-    nationalite: Attribute.String;
-    date_naissance: Attribute.Date;
-    lieu_naissance: Attribute.String;
-    type_carte_identite: Attribute.String;
-    numero_carte_identite: Attribute.String;
-    numero_personne_a_prevenir_1: Attribute.String;
-    numero_personne_a_prevenir_2: Attribute.String;
-    engagement: Attribute.Boolean;
-    approbation: Attribute.Enumeration<
-      ['initiale', 'gestionnaire', 'administrateur']
-    >;
-    users_permissions_user: Attribute.Relation<
-      'api::personne-physique.personne-physique',
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
-    statut: Attribute.Enumeration<['rejected', 'validated', 'pending']>;
-    observation: Attribute.String;
-    client: Attribute.Relation<
-      'api::personne-physique.personne-physique',
-      'manyToOne',
-      'api::client.client'
-    >;
-    numero_compte_principal: Attribute.String;
-    photo_profil: Attribute.String;
-    type_compte: Attribute.String;
-    bouquet: Attribute.Relation<
-      'api::personne-physique.personne-physique',
-      'manyToOne',
-      'api::bouquet.bouquet'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::personne-physique.personne-physique',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::personne-physique.personne-physique',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -1040,6 +788,260 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAgentAgent extends Schema.CollectionType {
+  collectionName: 'agents';
+  info: {
+    singularName: 'agent';
+    pluralName: 'agents';
+    displayName: 'agent';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    noms: Attribute.String;
+    fonction: Attribute.String;
+    users_permissions_user: Attribute.Relation<
+      'api::agent.agent',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::agent.agent',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::agent.agent',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBouquetBouquet extends Schema.CollectionType {
+  collectionName: 'bouquets';
+  info: {
+    singularName: 'bouquet';
+    pluralName: 'bouquets';
+    displayName: 'bouquet';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    personne_morales: Attribute.Relation<
+      'api::bouquet.bouquet',
+      'oneToMany',
+      'api::personne-morale.personne-morale'
+    >;
+    personne_physiques: Attribute.Relation<
+      'api::bouquet.bouquet',
+      'oneToMany',
+      'api::personne-physique.personne-physique'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::bouquet.bouquet',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::bouquet.bouquet',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiClientClient extends Schema.CollectionType {
+  collectionName: 'clients';
+  info: {
+    singularName: 'client';
+    pluralName: 'clients';
+    displayName: 'client';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    personne_morales: Attribute.Relation<
+      'api::client.client',
+      'oneToMany',
+      'api::personne-morale.personne-morale'
+    >;
+    personne_physiques: Attribute.Relation<
+      'api::client.client',
+      'oneToMany',
+      'api::personne-physique.personne-physique'
+    >;
+    users_permissions_user: Attribute.Relation<
+      'api::client.client',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    email: Attribute.Email;
+    telephone: Attribute.String;
+    sales: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::client.client',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::client.client',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPersonneMoralePersonneMorale extends Schema.CollectionType {
+  collectionName: 'personne_morales';
+  info: {
+    singularName: 'personne-morale';
+    pluralName: 'personne-morales';
+    displayName: 'personneMorale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    type_compte: Attribute.String;
+    degre_parente: Attribute.String;
+    nom_demandeur: Attribute.String;
+    engagement: Attribute.Boolean;
+    approbation: Attribute.Enumeration<
+      ['gestionnaire', 'administrateur', 'initiale']
+    >;
+    users_permissions_user: Attribute.Relation<
+      'api::personne-morale.personne-morale',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    statut: Attribute.Enumeration<['rejected', 'validated', 'pending']>;
+    observation: Attribute.String;
+    client: Attribute.Relation<
+      'api::personne-morale.personne-morale',
+      'manyToOne',
+      'api::client.client'
+    >;
+    numero_compte_principal: Attribute.String & Attribute.Unique;
+    logo: Attribute.String;
+    bouquet: Attribute.Relation<
+      'api::personne-morale.personne-morale',
+      'manyToOne',
+      'api::bouquet.bouquet'
+    >;
+    paiement: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::personne-morale.personne-morale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::personne-morale.personne-morale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPersonnePhysiquePersonnePhysique
+  extends Schema.CollectionType {
+  collectionName: 'personne_physiques';
+  info: {
+    singularName: 'personne-physique';
+    pluralName: 'personne-physiques';
+    displayName: 'personnePhysique';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    nom: Attribute.String;
+    postNom: Attribute.String;
+    prenom: Attribute.String;
+    sexe: Attribute.String;
+    adressePhysique: Attribute.String;
+    quartier: Attribute.String;
+    commune: Attribute.String;
+    ville: Attribute.String;
+    nationalite: Attribute.String;
+    date_naissance: Attribute.Date;
+    lieu_naissance: Attribute.String;
+    type_carte_identite: Attribute.String;
+    numero_carte_identite: Attribute.String;
+    numero_personne_a_prevenir_1: Attribute.String;
+    numero_personne_a_prevenir_2: Attribute.String;
+    engagement: Attribute.Boolean;
+    approbation: Attribute.Enumeration<
+      ['initiale', 'gestionnaire', 'administrateur']
+    >;
+    users_permissions_user: Attribute.Relation<
+      'api::personne-physique.personne-physique',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    statut: Attribute.Enumeration<['rejected', 'validated', 'pending']>;
+    observation: Attribute.String;
+    client: Attribute.Relation<
+      'api::personne-physique.personne-physique',
+      'manyToOne',
+      'api::client.client'
+    >;
+    numero_compte_principal: Attribute.String;
+    photo_profil: Attribute.String;
+    type_compte: Attribute.String;
+    bouquet: Attribute.Relation<
+      'api::personne-physique.personne-physique',
+      'manyToOne',
+      'api::bouquet.bouquet'
+    >;
+    paiement: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::personne-physique.personne-physique',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::personne-physique.personne-physique',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1050,11 +1052,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::agent.agent': ApiAgentAgent;
-      'api::bouquet.bouquet': ApiBouquetBouquet;
-      'api::client.client': ApiClientClient;
-      'api::personne-morale.personne-morale': ApiPersonneMoralePersonneMorale;
-      'api::personne-physique.personne-physique': ApiPersonnePhysiquePersonnePhysique;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -1063,6 +1060,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::agent.agent': ApiAgentAgent;
+      'api::bouquet.bouquet': ApiBouquetBouquet;
+      'api::client.client': ApiClientClient;
+      'api::personne-morale.personne-morale': ApiPersonneMoralePersonneMorale;
+      'api::personne-physique.personne-physique': ApiPersonnePhysiquePersonnePhysique;
     }
   }
 }
