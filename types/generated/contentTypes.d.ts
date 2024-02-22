@@ -399,6 +399,46 @@ export interface ApiAgentAgent extends Schema.CollectionType {
   };
 }
 
+export interface ApiBouquetBouquet extends Schema.CollectionType {
+  collectionName: 'bouquets';
+  info: {
+    singularName: 'bouquet';
+    pluralName: 'bouquets';
+    displayName: 'bouquet';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    personne_morales: Attribute.Relation<
+      'api::bouquet.bouquet',
+      'oneToMany',
+      'api::personne-morale.personne-morale'
+    >;
+    personne_physiques: Attribute.Relation<
+      'api::bouquet.bouquet',
+      'oneToMany',
+      'api::personne-physique.personne-physique'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::bouquet.bouquet',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::bouquet.bouquet',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiClientClient extends Schema.CollectionType {
   collectionName: 'clients';
   info: {
@@ -481,6 +521,11 @@ export interface ApiPersonneMoralePersonneMorale extends Schema.CollectionType {
     >;
     numero_compte_principal: Attribute.String & Attribute.Unique;
     logo: Attribute.String;
+    bouquet: Attribute.Relation<
+      'api::personne-morale.personne-morale',
+      'manyToOne',
+      'api::bouquet.bouquet'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -546,6 +591,11 @@ export interface ApiPersonnePhysiquePersonnePhysique
     numero_compte_principal: Attribute.String;
     photo_profil: Attribute.String;
     type_compte: Attribute.String;
+    bouquet: Attribute.Relation<
+      'api::personne-physique.personne-physique',
+      'manyToOne',
+      'api::bouquet.bouquet'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1001,6 +1051,7 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::agent.agent': ApiAgentAgent;
+      'api::bouquet.bouquet': ApiBouquetBouquet;
       'api::client.client': ApiClientClient;
       'api::personne-morale.personne-morale': ApiPersonneMoralePersonneMorale;
       'api::personne-physique.personne-physique': ApiPersonnePhysiquePersonnePhysique;

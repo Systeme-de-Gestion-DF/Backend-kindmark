@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bouquets",
+  "info": {
+    "singularName": "bouquet",
+    "pluralName": "bouquets",
+    "displayName": "bouquet"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "personne_morales": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::personne-morale.personne-morale",
+      "mappedBy": "bouquet"
+    },
+    "personne_physiques": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::personne-physique.personne-physique",
+      "mappedBy": "bouquet"
+    }
+  }
+}

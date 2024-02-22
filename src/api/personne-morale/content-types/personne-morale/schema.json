@@ -62,6 +62,12 @@
     },
     "logo": {
       "type": "string"
+    },
+    "bouquet": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bouquet.bouquet",
+      "inversedBy": "personne_morales"
     }
   }
 }
