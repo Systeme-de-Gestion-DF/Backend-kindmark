@@ -831,6 +831,7 @@ export interface ApiBouquetBouquet extends Schema.CollectionType {
     singularName: 'bouquet';
     pluralName: 'bouquets';
     displayName: 'bouquet';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -839,12 +840,12 @@ export interface ApiBouquetBouquet extends Schema.CollectionType {
     name: Attribute.String;
     personne_morales: Attribute.Relation<
       'api::bouquet.bouquet',
-      'oneToMany',
+      'manyToMany',
       'api::personne-morale.personne-morale'
     >;
     personne_physiques: Attribute.Relation<
       'api::bouquet.bouquet',
-      'oneToMany',
+      'manyToMany',
       'api::personne-physique.personne-physique'
     >;
     createdAt: Attribute.DateTime;
@@ -947,12 +948,12 @@ export interface ApiPersonneMoralePersonneMorale extends Schema.CollectionType {
     >;
     numero_compte_principal: Attribute.String & Attribute.Unique;
     logo: Attribute.String;
-    bouquet: Attribute.Relation<
+    paiement: Attribute.String;
+    bouquets: Attribute.Relation<
       'api::personne-morale.personne-morale',
-      'manyToOne',
+      'manyToMany',
       'api::bouquet.bouquet'
     >;
-    paiement: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1018,12 +1019,12 @@ export interface ApiPersonnePhysiquePersonnePhysique
     numero_compte_principal: Attribute.String;
     photo_profil: Attribute.String;
     type_compte: Attribute.String;
-    bouquet: Attribute.Relation<
+    paiement: Attribute.String;
+    bouquets: Attribute.Relation<
       'api::personne-physique.personne-physique',
-      'manyToOne',
+      'manyToMany',
       'api::bouquet.bouquet'
     >;
-    paiement: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

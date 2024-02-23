@@ -63,14 +63,14 @@
     "logo": {
       "type": "string"
     },
-    "bouquet": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::bouquet.bouquet",
-      "inversedBy": "personne_morales"
-    },
     "paiement": {
       "type": "string"
+    },
+    "bouquets": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::bouquet.bouquet",
+      "inversedBy": "personne_morales"
     }
   }
 }

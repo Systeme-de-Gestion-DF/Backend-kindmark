@@ -4,7 +4,8 @@
   "info": {
     "singularName": "bouquet",
     "pluralName": "bouquets",
-    "displayName": "bouquet"
+    "displayName": "bouquet",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,15 +17,15 @@
     },
     "personne_morales": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::personne-morale.personne-morale",
-      "mappedBy": "bouquet"
+      "mappedBy": "bouquets"
     },
     "personne_physiques": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::personne-physique.personne-physique",
-      "mappedBy": "bouquet"
+      "mappedBy": "bouquets"
     }
   }
 }
